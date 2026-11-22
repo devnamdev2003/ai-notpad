@@ -1,0 +1,27 @@
+SMART NOTEPAD - HOW TO TURN IT INTO INSTALLABLE SOFTWARE (Windows)
+==================================================================
+
+Put these 3 files in one folder:  smart_notepad.py, build_exe.bat, installer.iss
+
+STEP 1 - Make the app (no terminal window)
+  Double-click build_exe.bat
+  Result: dist\SmartNotepad\SmartNotepad.exe   (double-click it to test)
+
+STEP 2 - Make the installer
+  1. Install Inno Setup (free): https://jrsoftware.org/isinfo.php
+  2. Open installer.iss in Inno Setup and press Compile (Ctrl+F9)
+  Result: installer_output\SmartNotepad-Setup.exe
+
+STEP 3 - Share
+  Send SmartNotepad-Setup.exe to your friends. It installs for the current
+  user (no admin rights), adds a Start Menu entry and an optional desktop icon.
+  Each friend gets their OWN free key at https://aistudio.google.com/apikey
+  and pastes it in Settings (Ctrl+,) the first time the app opens.
+
+NOTES
+  * Windows may show "Windows protected your PC" for the installer because it
+    is not code-signed. Click "More info" > "Run anyway". Some antivirus tools
+    also flag unsigned PyInstaller apps; that is a false alarm.
+  * Settings and the API key are saved in %APPDATA%\SmartNotepad\settings.json
+    (plain text, on that computer only).
+  * Optional icon: put an app.ico next to build_exe.bat before building.
